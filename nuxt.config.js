@@ -6,14 +6,18 @@ export default {
   head: {
     title: 'unipro',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description', name: 'description', content: ''
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [ {
+      rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'
+    } ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,18 +36,36 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyA1tppiW7FLbBi1TP69l4L3JSeQgU52CqI',
+          authDomain: 'unipro-d660f.firebaseapp.com',
+          projectId: 'unipro-d660f',
+          storageBucket: 'unipro-d660f.appspot.com',
+          messagingSenderId: '398668392066',
+          appId: '1:398668392066:web:bea1e30e8ee49590e6769b',
+          measurementId: 'G-MHESQCNR4Q'
+        },
+        services: {
+          auth: true,
+          firestore: true
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {}
 }

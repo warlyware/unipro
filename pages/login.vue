@@ -9,7 +9,7 @@
         </div>
 
         <div class="mt-8">
-          <div>
+          <!-- <div>
             <div>
               <p class="text-sm font-medium text-gray-700">
                 Sign in with
@@ -96,13 +96,14 @@
                 </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="mt-6">
             <form
               action="#"
               method="POST"
               class="space-y-6"
+              @submit.prevent="handleSubmit"
             >
               <div>
                 <label
@@ -140,6 +141,13 @@
                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   >
                 </div>
+              </div>
+
+              <div
+                v-if="errorText"
+                class="text-red-600"
+              >
+                {{ errorText }}
               </div>
 
               <div class="flex items-center justify-between">
@@ -190,3 +198,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      errorText: ''
+    }
+  },
+  methods: {
+    async handleSubmit() {
+      try {
+        await this.$fire.auth.createUserWithEmailAndPassword('foo@foo.foo', 'asdfasdf')
+      } catch (err) {
+        if (err) {
+          this.errorText = err.message
+        }
+        console.error(err)
+      }
+    }
+  }
+}
+</script>
