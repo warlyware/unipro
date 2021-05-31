@@ -1,0 +1,63 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": ["eslint:recommended", "standard", "plugin:vue/vue3-recommended"],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "vueFeatures": {
+      "filter": true,
+      "interpolationAsNonHTML": false
+    }
+  },
+  "plugins": ["modules-newline", "vue"],
+  "rules": {
+    "no-fallthrough": "off",
+    "indent": ["error", "tab"],
+    "array-bracket-spacing": ["error", "always"],
+    "space-before-function-paren": "off",
+    "no-unused-vars": "warn",
+    "vue/html-indent": [
+      "error",
+      2,
+      {
+        "attribute": 1,
+        "baseIndent": 1,
+        "closeBracket": 0,
+        "alignAttributesVertically": true,
+        "ignores": []
+      }
+    ],
+    "no-var": "error",
+    "vue/multiline-html-element-content-newline": [
+      "error",
+      {
+        "ignoreWhenEmpty": false,
+        "ignores": [],
+        "allowEmptyLines": false
+      }
+    ],
+    "vue/singleline-html-element-content-newline": [
+      "error",
+      {
+        "ignoreWhenNoAttributes": false,
+        "ignoreWhenEmpty": false,
+        "ignores": []
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "template-curly-spacing": ["off"],
+    "object-property-newline": "error",
+    "object-curly-newline": [
+      "error",
+      {
+        "minProperties": 3,
+        "consistent": true,
+        "multiline": true
+      }
+    ],
+    "modules-newline/import-declaration-newline": "warn",
+    "modules-newline/export-declaration-newline": "warn"
+  }
+}
