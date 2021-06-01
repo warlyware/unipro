@@ -56,7 +56,12 @@ export default {
           measurementId: 'G-MHESQCNR4Q'
         },
         services: {
-          auth: true,
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              onAuthStateChangedAction: 'onAuthStateChanged'
+            }
+          },
           firestore: true
         }
       }

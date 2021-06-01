@@ -13,6 +13,7 @@
   },
   "plugins": ["modules-newline", "vue"],
   "rules": {
+    "no-debugger": "off",
     "no-fallthrough": "off",
     "array-bracket-spacing": ["error", "always"],
     "space-before-function-paren": "off",
