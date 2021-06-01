@@ -21,7 +21,10 @@
               {{ user.name }}
             </p>
             <p class="text-sm font-medium text-gray-600">
-              {{ user.role }}
+              ID: {{ user.uid }}
+            </p>
+            <p class="text-sm font-medium text-gray-600">
+              Email: {{ user.email }}
             </p>
           </div>
         </div>
