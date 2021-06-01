@@ -1288,6 +1288,11 @@
     protobufjs "^6.10.0"
     yargs "^16.1.1"
 
+"@headlessui/vue@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.2.0.tgz#941ccc8629b11eaa10c09009dad6e3f6cbdc2c79"
+  integrity sha512-nATOiQyGik8qoGFnWdWDaMWlpBLBaybhsa4drUoz/vMggw2fmXqzilAfMXHDwvqzh35SkSb13BEWA8kUSUNgkg==
+
 "@koa/router@^9.0.1":
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/@koa/router/-/router-9.4.0.tgz#734b64c0ae566eb5af752df71e4143edc4748e48"
@@ -2065,6 +2070,13 @@
   dependencies:
     "@typescript-eslint/types" "4.26.0"
     eslint-visitor-keys "^2.0.0"
+
+"@vue-hero-icons/outline@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@vue-hero-icons/outline/-/outline-1.7.2.tgz#ec723ee45e142d2249948c58be65f5d35e3c4ed3"
+  integrity sha512-mgMpncarjZHXY1K2tyjbYHf53yQG9amroDR9t2iH/umpsN8+f8RNcTy1m131EZ8WBCm8MpF97XpXPV129rvtVg==
+  dependencies:
+    babel-helper-vue-jsx-merge-props "^2.0.3"
 
 "@vue-hero-icons/solid@^1.7.2":
   version "1.7.2"
