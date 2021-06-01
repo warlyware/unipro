@@ -3,7 +3,6 @@
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <div>
-          {{ authUser }}
           <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
             {{ headingText }}
           </h2>
@@ -133,7 +132,10 @@
 
 <script>
 import SocialLoginProviders from '@/components/SocialLoginProviders.vue'
-import { mapState } from 'vuex'
+import {
+  mapGetters,
+  mapState
+} from 'vuex'
 
 const UI_MODES = {
   ACCOUNT_CREATION: 'account_creation',
@@ -161,11 +163,14 @@ export default {
     buttonText() {
       return this.uiMode === UI_MODES.ACCOUNT_CREATION ? 'Create Account' : 'Login'
     },
-    ...mapState([ 'authUser' ])
+    ...mapState([ 'authUser' ]),
+    ...mapGetters([ 'isLoggedIn' ])
   },
-  mounted() {
-    if (this.authUser.uid) {
-      this.$router.push('/me')
+  watch: {
+    authUser() {
+      if (this.isLoggedIn) {
+        this.$router.push('/me')
+      }
     }
   },
   methods: {

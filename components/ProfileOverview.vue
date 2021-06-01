@@ -27,18 +27,21 @@
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 xl:grid-cols-3 xl:divide-y-0 xl:divide-x">
+
+    <action-bar class="mb-8 mx-12" />
+
+    <div class="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 xl:grid-cols-3 xl:divide-y-0 xl:divide-x items-center">
       <div
         v-for="stat in stats"
         :key="stat.label"
         class="px-6 py-5 text-sm font-medium text-center"
       >
-        <span class="text-gray-900">
-          {{ stat.value }}
-        </span>
-        {{ ' ' }}
         <span class="text-gray-600">
           {{ stat.label }}
+        </span>
+        {{ ' ' }}
+        <span class="text-gray-900">
+          {{ stat.value }}
         </span>
       </div>
     </div>
@@ -46,7 +49,12 @@
 </template>
 
 <script>
+import ActionBar from '@/components/ActionBar.vue'
+
 export default {
+  components: {
+    ActionBar
+  },
   props: {
     user: {
       type: Object,

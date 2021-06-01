@@ -1,27 +1,4 @@
-export const state = () => ({
-  authUser: null
-})
-
-export const getters = {
-  isLoggedIn: (state) => {
-    try {
-      return state.authUser.uid !== null
-    } catch {
-      return false
-    }
-  }
-}
-
-export const mutations = {
-  SET_AUTH_USER: (state, { authUser }) => {
-    state.authUser = {
-      uid: authUser.uid,
-      email: authUser.email
-    }
-  }
-}
-
-export const actions = {
+export default {
   async nuxtServerInit({ dispatch }, ctx) {
     // INFO -> Nuxt-fire Objects can be accessed in nuxtServerInit action via this.$fire___, ctx.$fire___ and ctx.app.$fire___'
 
@@ -51,17 +28,16 @@ export const actions = {
     if (authUser && authUser.getIdToken) {
       try {
         const idToken = await authUser.getIdToken(true)
-        console.info('idToken', idToken)
+        commit('SET_AUTH_USER', { authUser })
       } catch (e) {
         console.error(e)
       }
     }
-    commit('SET_AUTH_USER', { authUser })
   },
 
   checkVuexStore(ctx) {
     if (this.$fire.auth === null) {
-      throw new Error('Vuex Store example not working - this.$fire.auth cannot be accessed.')
+      throw Error('Vuex Store example not working - this.$fire.auth cannot be accessed.')
     }
 
     alert(
